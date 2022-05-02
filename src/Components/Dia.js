@@ -3,8 +3,8 @@ import dayjs from 'dayjs';
 import GlobalContext from '../Context/GlobalContext';
 import { timeConvert } from '../Util/Util';
 import Hora from './Hora';
-import axios from 'axios'
-import {getMonth} from '../Util/Util'
+import axios from 'axios';
+import { getMonth } from '../Util/Util';
 
 let arrHoras = [
   { hora: 1, jornada: 'am', horam: 1 },
@@ -47,11 +47,11 @@ export default function Dia({ day, rowIdx, idUsuDia }) {
     colores,
     usuarios,
     monthIndex,
-    arrIds
+    arrIds,
   } = useContext(GlobalContext);
   //console.log(usuarios);
   useEffect(() => {
-    console.log(filtrarActividades)
+    //console.log(filtrarActividades)
 
     // const events =
     // ActividadesMes?
@@ -82,77 +82,76 @@ export default function Dia({ day, rowIdx, idUsuDia }) {
 
     let events = [];
     let contador = 0;
-    
-      for (let i = 0; i < filtrarActividades.length; i++) {
-        if (
-          filtrarActividades[i].FECHACALINI != undefined &&
-          filtrarActividades[i].FECHACALINI != null &&
-          filtrarActividades[i].FECHACALFIN != undefined &&
-          filtrarActividades[i].FECHACALFIN != null &&
-          (dayjs(
-            timeConvert(filtrarActividades[i].FECHACALINI)
-          ).format('DD-MM-YY') === day.format('DD-MM-YY') ||
-            dayjs(
-              timeConvert(filtrarActividades[i].FECHACALFIN)
-            ).format('DD-MM-YY') === day.format('DD-MM-YY'))
-        ) {
-          events.push(filtrarActividades[i]);
-          contador++;
-          //return true
-        }
-        if (
-          filtrarActividades[i].FECHACALINI2 != undefined &&
-          filtrarActividades[i].FECHACALINI2 != null &&
-          filtrarActividades[i].FECHACALFIN2 != undefined &&
-          filtrarActividades[i].FECHACALFIN2 != null &&
-          (dayjs(
-            timeConvert(filtrarActividades[i].FECHACALINI2)
-          ).format('DD-MM-YY') === day.format('DD-MM-YY') ||
-            dayjs(
-              timeConvert(filtrarActividades[i].FECHACALFIN2)
-            ).format('DD-MM-YY') === day.format('DD-MM-YY'))
-        ) {
-          events.push(filtrarActividades[i]);
-          contador++;
-          //return true
-        }
-        if (
-          filtrarActividades[i].FECHACALINI3 != undefined &&
-          filtrarActividades[i].FECHACALINI3 != null &&
-          filtrarActividades[i].FECHACALFIN3 != undefined &&
-          filtrarActividades[i].FECHACALFIN3 != null &&
-          (dayjs(
-            timeConvert(filtrarActividades[i].FECHACALINI3)
-          ).format('DD-MM-YY') === day.format('DD-MM-YY') ||
-            dayjs(
-              timeConvert(filtrarActividades[i].FECHACALFIN3)
-            ).format('DD-MM-YY') === day.format('DD-MM-YY'))
-        ) {
-          events.push(filtrarActividades[i]);
-          contador++;
-          //return true
-        }
-        if (
-          filtrarActividades[i].FECHACALINI4 != undefined &&
-          filtrarActividades[i].FECHACALINI4 != null &&
-          filtrarActividades[i].FECHACALFIN4 != undefined &&
-          filtrarActividades[i].FECHACALFIN4 != null &&
-          (dayjs(
-            timeConvert(filtrarActividades[i].FECHACALINI4)
-          ).format('DD-MM-YY') === day.format('DD-MM-YY') ||
-            dayjs(
-              timeConvert(filtrarActividades[i].FECHACALFIN4)
-            ).format('DD-MM-YY') === day.format('DD-MM-YY'))
-        ) {
-          events.push(filtrarActividades[i]);
-          contador++;
-          //return true
-        }
-        if (contador > 3) {
-          break;
-        }
+
+    for (let i = 0; i < filtrarActividades.length; i++) {
+      if (
+        filtrarActividades[i].FECHACALINI != undefined &&
+        filtrarActividades[i].FECHACALINI != null &&
+        filtrarActividades[i].FECHACALFIN != undefined &&
+        filtrarActividades[i].FECHACALFIN != null &&
+        (dayjs(timeConvert(filtrarActividades[i].FECHACALINI)).format(
+          'DD-MM-YY'
+        ) === day.format('DD-MM-YY') ||
+          dayjs(timeConvert(filtrarActividades[i].FECHACALFIN)).format(
+            'DD-MM-YY'
+          ) === day.format('DD-MM-YY'))
+      ) {
+        events.push(filtrarActividades[i]);
+        contador++;
+        //return true
       }
-    
+      if (
+        filtrarActividades[i].FECHACALINI2 != undefined &&
+        filtrarActividades[i].FECHACALINI2 != null &&
+        filtrarActividades[i].FECHACALFIN2 != undefined &&
+        filtrarActividades[i].FECHACALFIN2 != null &&
+        (dayjs(timeConvert(filtrarActividades[i].FECHACALINI2)).format(
+          'DD-MM-YY'
+        ) === day.format('DD-MM-YY') ||
+          dayjs(timeConvert(filtrarActividades[i].FECHACALFIN2)).format(
+            'DD-MM-YY'
+          ) === day.format('DD-MM-YY'))
+      ) {
+        events.push(filtrarActividades[i]);
+        contador++;
+        //return true
+      }
+      if (
+        filtrarActividades[i].FECHACALINI3 != undefined &&
+        filtrarActividades[i].FECHACALINI3 != null &&
+        filtrarActividades[i].FECHACALFIN3 != undefined &&
+        filtrarActividades[i].FECHACALFIN3 != null &&
+        (dayjs(timeConvert(filtrarActividades[i].FECHACALINI3)).format(
+          'DD-MM-YY'
+        ) === day.format('DD-MM-YY') ||
+          dayjs(timeConvert(filtrarActividades[i].FECHACALFIN3)).format(
+            'DD-MM-YY'
+          ) === day.format('DD-MM-YY'))
+      ) {
+        events.push(filtrarActividades[i]);
+        contador++;
+        //return true
+      }
+      if (
+        filtrarActividades[i].FECHACALINI4 != undefined &&
+        filtrarActividades[i].FECHACALINI4 != null &&
+        filtrarActividades[i].FECHACALFIN4 != undefined &&
+        filtrarActividades[i].FECHACALFIN4 != null &&
+        (dayjs(timeConvert(filtrarActividades[i].FECHACALINI4)).format(
+          'DD-MM-YY'
+        ) === day.format('DD-MM-YY') ||
+          dayjs(timeConvert(filtrarActividades[i].FECHACALFIN4)).format(
+            'DD-MM-YY'
+          ) === day.format('DD-MM-YY'))
+      ) {
+        events.push(filtrarActividades[i]);
+        contador++;
+        //return true
+      }
+      if (contador > 3) {
+        break;
+      }
+    }
 
     //(contador)
     setDayEvents(events);
@@ -168,15 +167,9 @@ export default function Dia({ day, rowIdx, idUsuDia }) {
     let claseColor = 'colorAzul';
     if (evt.ESTADO === 3) {
       claseColor = 'colorVerde';
-    } else if (
-      evt.USUARIOSID != idUsuario &&
-      evt.ESTADO === 1
-    ) {
+    } else if (evt.USUARIOSID != idUsuario && evt.ESTADO === 1) {
       claseColor = 'colorAzulClaro';
-    } else if (
-      evt.USUARIOSID === idUsuario &&
-      evt.ESTADO === 1
-    ) {
+    } else if (evt.USUARIOSID === idUsuario && evt.ESTADO === 1) {
       claseColor = 'colorAzul';
     }
     return claseColor;
@@ -197,7 +190,6 @@ export default function Dia({ day, rowIdx, idUsuDia }) {
     return '';
   }
 
-  
   return opcionVista == 1 ? (
     <div className='border border-gray-200 flex flex-col '>
       <header className='flex flex-col items-center'>
@@ -231,8 +223,7 @@ export default function Dia({ day, rowIdx, idUsuDia }) {
                 evt
               )} rounded-full inline-block`}
             ></div>
-            {evt.FLUJOTRABAJOID.toLocaleString()} -{' '}
-            {evt.ASUNTO}
+            {evt.FLUJOTRABAJOID.toLocaleString()} - {evt.ASUNTO}
           </div>
         ))}
       </div>
@@ -241,67 +232,65 @@ export default function Dia({ day, rowIdx, idUsuDia }) {
     <div className='flex-1 grid grid-cols-1 grid-rows-24'>
       <React.Fragment>
         {arrHoras.map((hora) => {
-          //console.log('stuff')         
+          //console.log('stuff')
           return (
-          <Hora
-            hora={hora.hora}
-            jornada={hora.jornada}
-            idUsuDia={idUsuDia}
-            eventos={  
-              dayEvents
-                ? dayEvents.filter((x) => {  
-                    if (
-                      x.HORACALINI != undefined &&
-                      x.HORACALINI != null &&
-                      x.HORACALFIN != undefined &&
-                      x.HORACALFIN != null &&                      
-                      (x.HORACALINI.Hours === hora.horam ||
-                        x.HORACALFIN.Hours === hora.horam) &&
-                      x.TERCERECURSOCTROLID === idUsuDia
-                    ) {
-                      return true;
-                    }
-                    if (
-                      x.HORACALINI2 != undefined &&
-                      x.HORACALINI2 != null &&
-                      x.HORACALFIN2 != undefined &&
-                      x.HORACALFIN2 != null &&
-                      (x.HORACALINI2.Hours === hora.horam ||
-                        x.HORACALFIN2.Hours === hora.horam) &&
-                      x.TERCERECURSOCTROL2ID === idUsuDia
-                    ) {
-                      return true;
-                    }
-                    if (
-                      x.HORACALINI3 != undefined &&
-                      x.HORACALINI3 != null &&
-                      x.HORACALFIN3 != undefined &&
-                      x.HORACALFIN3 != null &&
-                      (x.HORACALINI3.Hours === hora.horam ||
-                        x.HORACALFIN3.Hours === hora.horam)
-                        &&
-                      x.TERCERECURSOCTROL3ID === idUsuDia
-                    ) {
-                      return true;
-                    }
-                    if (
-                      x.HORACALINI4 != undefined &&
-                      x.HORACALINI4 != null &&
-                      x.HORACALFIN4 != undefined &&
-                      x.HORACALFIN4 != null &&
-                      (x.HORACALINI4.Hours === hora.horam ||
-                        x.HORACALFIN4.Hours === hora.horam)&&
+            <Hora
+              hora={hora.hora}
+              jornada={hora.jornada}
+              idUsuDia={idUsuDia}
+              eventos={
+                dayEvents
+                  ? dayEvents.filter((x) => {
+                      if (
+                        x.HORACALINI != undefined &&
+                        x.HORACALINI != null &&
+                        x.HORACALFIN != undefined &&
+                        x.HORACALFIN != null &&
+                        (x.HORACALINI.Hours === hora.horam ||
+                          x.HORACALFIN.Hours === hora.horam) &&
+                        x.TERCERECURSOCTROLID === idUsuDia
+                      ) {
+                        return true;
+                      }
+                      if (
+                        x.HORACALINI2 != undefined &&
+                        x.HORACALINI2 != null &&
+                        x.HORACALFIN2 != undefined &&
+                        x.HORACALFIN2 != null &&
+                        (x.HORACALINI2.Hours === hora.horam ||
+                          x.HORACALFIN2.Hours === hora.horam) &&
+                        x.TERCERECURSOCTROL2ID === idUsuDia
+                      ) {
+                        return true;
+                      }
+                      if (
+                        x.HORACALINI3 != undefined &&
+                        x.HORACALINI3 != null &&
+                        x.HORACALFIN3 != undefined &&
+                        x.HORACALFIN3 != null &&
+                        (x.HORACALINI3.Hours === hora.horam ||
+                          x.HORACALFIN3.Hours === hora.horam) &&
+                        x.TERCERECURSOCTROL3ID === idUsuDia
+                      ) {
+                        return true;
+                      }
+                      if (
+                        x.HORACALINI4 != undefined &&
+                        x.HORACALINI4 != null &&
+                        x.HORACALFIN4 != undefined &&
+                        x.HORACALFIN4 != null &&
+                        (x.HORACALINI4.Hours === hora.horam ||
+                          x.HORACALFIN4.Hours === hora.horam) &&
                         x.TERCERECURSOCTROL4ID === idUsuDia
-                    ) {
-                      return true;
-                    }
-                    return false;
-                  })
-                : []
-      
+                      ) {
+                        return true;
+                      }
+                      return false;
+                    })
+                  : []
               }
-          />
-        )
+            />
+          );
         })}
       </React.Fragment>
     </div>

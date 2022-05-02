@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.colorAzul{
+   background: #135995;
+   color: whitesmoke;
+}
+
+.colorVerde{
+    background: #008000;
+    color: whitesmoke;
+}
+
+.colorAzulClaro{
+   background: #6397c3;
+   color: whitesmoke; 
+   /* Color Azul Claro activo en otro usuario  */
+} 
+

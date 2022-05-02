@@ -1,0 +1,1 @@
+module.exports = [{id:2041,nombre:'Paula',checked:true,num:0}]
